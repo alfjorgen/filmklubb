@@ -32,30 +32,29 @@ export function HistorySection({ films }: { films: Screening[] }) {
     <section id="history" className="section">
       <div className="section__head-row">
         <h2 className="section__title">{t.historyTitle}</h2>
-        {films.length > 0 && (
-          <button
-            type="button"
-            className="toggle-btn"
-            aria-expanded={open}
-            aria-controls="history-panel"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? t.hideHistory : t.showHistory}
-          </button>
-        )}
+        <button
+          type="button"
+          className="toggle-btn"
+          aria-expanded={open}
+          aria-controls="history-panel"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? t.hideHistory : t.showHistory}
+        </button>
       </div>
 
-      {films.length === 0 ? (
-        <p className="section__empty">{t.noHistory}</p>
-      ) : (
-        open && (
-          <div id="history-panel" className="card-grid">
+      {/* Collapsed by default, whether or not there is anything to show. */}
+      <div id="history-panel" hidden={!open}>
+        {films.length === 0 ? (
+          <p className="section__empty">{t.noHistory}</p>
+        ) : (
+          <div className="card-grid">
             {films.map((f) => (
               <FilmCard key={f.id} film={f} />
             ))}
           </div>
-        )
-      )}
+        )}
+      </div>
     </section>
   );
 }

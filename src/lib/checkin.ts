@@ -43,6 +43,8 @@ export type Screening = {
   director: string | null;
   /** Ticket categories with prices, e.g. [{ name: "Vaksen", price: "100" }]. */
   prices: { name: string; price: string | null }[];
+  /** Published, but ticket sales are closed (Checkin status CLOSED). */
+  closed: boolean;
 };
 
 type RawField = { key: string; value: string | null; description: string | null };
@@ -59,7 +61,18 @@ type RawEvent = {
   geoLocationDescription: string | null;
   categories: { name: string; price: string | null }[] | null;
   fields: RawField[] | null;
+  publishedStatus: PublishedStatus | null;
 };
+
+/**
+ * Checkin's EventPublishedStatusEnum. UNPUBLISHED = draft; OPEN and CLOSED are
+ * both published (CLOSED just means ticket sales have ended).
+ */
+type PublishedStatus = "UNPUBLISHED" | "OPEN" | "CLOSED";
+
+function isPublished(e: RawEvent): boolean {
+  return e.publishedStatus === "OPEN" || e.publishedStatus === "CLOSED";
+}
 
 const EVENTS_QUERY = /* GraphQL */ `
   query ClubEvents($customerId: Int!, $active: Boolean) {
@@ -83,6 +96,7 @@ const EVENTS_QUERY = /* GraphQL */ `
         value
         description
       }
+      publishedStatus
     }
   }
 `;
@@ -118,6 +132,7 @@ function toScreening(e: RawEvent): Screening {
     year: parseYear(e.name),
     director: parseDirector(e.fields),
     prices: (e.categories ?? []).map((c) => ({ name: c.name, price: c.price })),
+    closed: e.publishedStatus === "CLOSED",
   };
 }
 
@@ -193,9 +208,9 @@ export async function getFilmData(): Promise<FilmData> {
     return { upcoming: [], past: [], apiError: true };
   }
 
-  // Dedupe by id (the two calls can overlap).
+  // Dedupe by id (the two calls can overlap), and never show drafts.
   const byId = new Map<number, RawEvent>();
-  for (const e of raw) byId.set(e.id, e);
+  for (const e of raw) if (isPublished(e)) byId.set(e.id, e);
 
   const now = Date.now();
   const screenings = [...byId.values()].map(toScreening);

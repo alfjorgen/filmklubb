@@ -19,6 +19,7 @@ export function FilmCard({ film }: { film: Screening }) {
 
   return (
     <article className="card">
+      {film.closed && <span className="card__ribbon">{t.closedRibbon}</span>}
       <a className="card__media" href={film.href} target="_blank" rel="noopener noreferrer">
         {hasPoster ? (
           // eslint-disable-next-line @next/next/no-img-element -- posters are arbitrary CDN URLs and frequently absent; a plain <img> with onError fallback is simplest.

@@ -10,18 +10,16 @@ export const CLUB = {
  * Club-wide practical info shown in the Info section.
  * Note: venue, price and per-screening details vary and come from the API — keep
  * those out of here. This is for things that are the same across all screenings.
- *
- * PLACEHOLDER: edit these bullet points. They are intentionally generic.
  */
 export const INFO_POINTS = {
   nn: [
-    "PLASSHALDAR: Skriv inn praktisk info her, t.d. om medlemskap og korleis ein blir medlem.",
-    "PLASSHALDAR: Billettar kjøper du via lenkja på kvar visning.",
-    "PLASSHALDAR: Stad og pris kan variere frå visning til visning – sjå den enkelte visninga.",
+    "Medlemskap kjøper du saman med billetten, og det varer i eit halvt år. Du må ha gyldig medlemskap og gyldig billett for å kome inn på visninga.",
+    "Billettar kjøper du via lenkja på kvar visning.",
+    "Stad og pris kan variere frå visning til visning – sjå den enkelte visninga.",
   ],
   en: [
-    "PLACEHOLDER: Add practical info here, e.g. about membership and how to join.",
-    "PLACEHOLDER: Buy tickets via the link on each screening.",
-    "PLACEHOLDER: Venue and price can vary per screening — see the individual screening.",
+    "Membership is bought together with a ticket and lasts for half a year. You need both a valid membership and a valid ticket to attend a screening.",
+    "Buy tickets via the link on each screening.",
+    "Venue and price can vary per screening — see the individual screening.",
   ],
 } as const;

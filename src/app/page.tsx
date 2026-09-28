@@ -27,6 +27,7 @@ export default async function HomePage() {
         <InfoSection />
         <ContactSection />
       </main>
+      <div className="sprocket-strip" aria-hidden="true" />
       <footer className="site-footer">
         <p>
           © {new Date().getFullYear()} {CLUB.name}

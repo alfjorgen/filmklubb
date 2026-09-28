@@ -31,6 +31,7 @@ export type Strings = {
   venueLabel: string;
   doorsLabel: string;
   ticketsCta: string;
+  closedRibbon: string; // ribbon on events whose ticket sales are closed
   priceLabel: string;
   dateTbd: string;
 };
@@ -57,6 +58,7 @@ export const STRINGS: Record<Lang, Strings> = {
     venueLabel: "Stad",
     doorsLabel: "Dørene opnar",
     ticketsCta: "Sjå og kjøp billett",
+    closedRibbon: "Billettsal stengd",
     priceLabel: "Pris",
     dateTbd: "Tidspunkt kjem",
   },
@@ -81,6 +83,7 @@ export const STRINGS: Record<Lang, Strings> = {
     venueLabel: "Venue",
     doorsLabel: "Doors open",
     ticketsCta: "View & buy tickets",
+    closedRibbon: "Sales closed",
     priceLabel: "Price",
     dateTbd: "Time to be announced",
   },
