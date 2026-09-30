@@ -7,6 +7,7 @@ import {
   ContactSection,
   HistorySection,
   InfoSection,
+  SponsorsSection,
   UpcomingSection,
 } from "@/components/Sections";
 
@@ -26,6 +27,7 @@ export default async function HomePage() {
         <HistorySection films={past} />
         <InfoSection />
         <ContactSection />
+        <SponsorsSection />
       </main>
       <div className="sprocket-strip" aria-hidden="true" />
       <footer className="site-footer">

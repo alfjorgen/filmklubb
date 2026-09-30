@@ -26,6 +26,7 @@ export function Header() {
             <a href="#history">{t.nav.history}</a>
             <a href="#info">{t.nav.info}</a>
             <a href="#contact">{t.nav.contact}</a>
+            <a href="#sponsors">{t.nav.sponsors}</a>
           </nav>
           <LanguageToggle />
         </div>

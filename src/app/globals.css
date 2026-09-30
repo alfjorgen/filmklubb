@@ -471,6 +471,27 @@ img {
   color: var(--black);
 }
 
+/* ---------- Sponsors ---------- */
+.sponsor-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 3rem;
+}
+.sponsor {
+  display: block;
+  transition: transform 0.12s;
+}
+.sponsor:hover {
+  transform: translateY(-2px);
+}
+.sponsor img {
+  width: min(280px, 100%);
+}
+
 /* ---------- Notices / footer ---------- */
 .api-error {
   background: var(--surface);

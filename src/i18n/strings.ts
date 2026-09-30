@@ -13,7 +13,7 @@ export type Strings = {
   langName: string;
   toggleLabel: string; // accessible label on the toggle button
   tagline: string;
-  nav: { upcoming: string; history: string; info: string; contact: string };
+  nav: { upcoming: string; history: string; info: string; contact: string; sponsors: string };
   upcomingTitle: string;
   noUpcoming: string;
   historyTitle: string;
@@ -24,6 +24,7 @@ export type Strings = {
   contactTitle: string;
   emailLabel: string;
   followUs: string;
+  sponsorsTitle: string;
   apiError: string;
   // Card labels
   directorYear: string; // joining label, e.g. "Regi" / "Director"
@@ -41,7 +42,7 @@ export const STRINGS: Record<Lang, Strings> = {
     langName: "Norsk",
     toggleLabel: "Byt språk",
     tagline: "Klassiske filmar på lerretet i Fjaler", // PLACEHOLDER: rediger fritt
-    nav: { upcoming: "Komande", history: "Tidlegare", info: "Info", contact: "Kontakt" },
+    nav: { upcoming: "Komande", history: "Tidlegare", info: "Info", contact: "Kontakt", sponsors: "Sponsorar" },
     upcomingTitle: "Komande visningar",
     noUpcoming: "Ingen komande visningar er lagt ut akkurat no. Følg oss på Facebook for oppdateringar.",
     historyTitle: "Tidlegare visningar",
@@ -52,6 +53,7 @@ export const STRINGS: Record<Lang, Strings> = {
     contactTitle: "Kontakt",
     emailLabel: "E-post",
     followUs: "Følg oss",
+    sponsorsTitle: "Støttespelarar og sponsorar",
     apiError: "Vi får ikkje kontakt med billettsystemet akkurat no. Prøv igjen seinare.",
     directorYear: "Regi",
     yearLabel: "År",
@@ -66,7 +68,7 @@ export const STRINGS: Record<Lang, Strings> = {
     langName: "English",
     toggleLabel: "Change language",
     tagline: "Classic films on the big screen in Fjaler", // PLACEHOLDER: edit freely
-    nav: { upcoming: "Upcoming", history: "History", info: "Info", contact: "Contact" },
+    nav: { upcoming: "Upcoming", history: "History", info: "Info", contact: "Contact", sponsors: "Sponsors" },
     upcomingTitle: "Upcoming screenings",
     noUpcoming: "No upcoming screenings are posted right now. Follow us on Facebook for updates.",
     historyTitle: "Past screenings",
@@ -77,6 +79,7 @@ export const STRINGS: Record<Lang, Strings> = {
     contactTitle: "Contact",
     emailLabel: "Email",
     followUs: "Follow us",
+    sponsorsTitle: "Supporters and sponsors",
     apiError: "We can't reach the ticket system right now. Please try again later.",
     directorYear: "Director",
     yearLabel: "Year",

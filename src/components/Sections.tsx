@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Screening } from "@/lib/checkin";
-import { CLUB, INFO_POINTS } from "@/lib/club";
+import { CLUB, INFO_POINTS, SPONSORS } from "@/lib/club";
 import { useLang } from "./LanguageProvider";
 import { FilmCard } from "./FilmCard";
 
@@ -66,7 +66,19 @@ export function InfoSection() {
       <h2 className="section__title">{t.infoTitle}</h2>
       <ul className="info-list">
         {INFO_POINTS[lang].map((point, i) => (
-          <li key={i}>{point}</li>
+          <li key={i}>
+            {typeof point === "string" ? (
+              point
+            ) : (
+              <>
+                {point.text}
+                <a href={point.link.url} target="_blank" rel="noopener noreferrer">
+                  {point.link.label}
+                </a>
+                {point.after}
+              </>
+            )}
+          </li>
         ))}
       </ul>
     </section>
@@ -91,6 +103,24 @@ export function ContactSection() {
           Instagram
         </a>
       </div>
+    </section>
+  );
+}
+
+export function SponsorsSection() {
+  const { t } = useLang();
+  return (
+    <section id="sponsors" className="section">
+      <h2 className="section__title">{t.sponsorsTitle}</h2>
+      <ul className="sponsor-list">
+        {SPONSORS.map((s) => (
+          <li key={s.name}>
+            <a href={s.url} target="_blank" rel="noopener noreferrer" className="sponsor">
+              <img src={s.logo} alt={s.name} width={s.width} height={s.height} loading="lazy" />
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
